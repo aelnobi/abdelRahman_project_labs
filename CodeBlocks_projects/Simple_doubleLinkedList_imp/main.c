@@ -107,6 +107,11 @@ void Remove(LinkedList* lst, int data)
 
 void Display(LinkedList* lst)
 {
+    if(!lst || lst->Head == NULL){
+    printf("No List available ");
+    return ;
+}
+
     Node* display = lst->Head;
     while(display!=NULL)
         {
@@ -115,7 +120,18 @@ void Display(LinkedList* lst)
         }
     printf("\n");
 }
-
+void Destroy(LinkedList* lst)
+{
+    Node* current = lst->Head;
+    while(current!=NULL)
+        {
+            Node* node = current->next;
+            free(current);
+            current = node;
+        }
+    free(lst);
+    printf("List is destroyed");
+}
 
 
 int main()
@@ -128,8 +144,8 @@ int main()
     Display(myLst);
     AddFromFirst(myLst,10);
     Display(myLst);
-//    Remove(myLst,6);
-//    Display(myLst);
+    Destroy(myLst);
+
 
 
     return 0;
