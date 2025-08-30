@@ -255,7 +255,7 @@ else
         {
                 /*First implementation*/
                 Node* newParent = node->Left;
-                Node* maxRight = GetMaxRight(tree,parent);
+                Node* maxRight = GetMaxRight(tree,newparent);
                 maxRight->Right = node->Right;
 
                 newChild = newParent;
